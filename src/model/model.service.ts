@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class ModelService {
   getAll() {
-    return 'models';
+    return process.env.DB_USERNAME;
   }
 }
