@@ -23,7 +23,9 @@ import { ModelModule } from './model/model.module';
             username: process.env.POSTGRES_USERNAME,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DATABASE,
-            ssl: true,
+            extra: {
+              ssl: true,
+            },
           }),
     }),
   ],
