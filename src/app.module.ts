@@ -16,7 +16,13 @@ import { ModelModule } from './model/model.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       ...(process.env.DATABASE_URL
-        ? { url: process.env.DATABASE_URL, ssl: true }
+        ? {
+            url: process.env.DATABASE_URL,
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
+          }
         : {
             host: process.env.POSTGRES_HOST,
             port: +process.env.POSTGRES_PORT,
