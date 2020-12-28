@@ -10,7 +10,6 @@ import { ModelModule } from './model/model.module';
     ModelModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env.test',
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
