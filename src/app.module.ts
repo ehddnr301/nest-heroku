@@ -23,6 +23,7 @@ import { ModelModule } from './model/model.module';
               require: true,
               rejectUnauthorized: false,
             },
+            synchronize: true,
           }
         : {
             host: process.env.POSTGRES_HOST,
