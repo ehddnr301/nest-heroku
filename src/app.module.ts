@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Model } from './model/entities/model.entity';
 import { ModelModule } from './model/model.module';
 
 @Module({
@@ -29,7 +30,9 @@ import { ModelModule } from './model/model.module';
             username: process.env.POSTGRES_USERNAME,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DATABASE,
+            synchronize: true,
           }),
+      entities: [Model],
     }),
   ],
   controllers: [AppController],
