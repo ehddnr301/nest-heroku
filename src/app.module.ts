@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Model } from './model/entities/model.entity';
 import { ModelModule } from './model/model.module';
+import { ProblemModule } from './problem/problem.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ModelModule } from './model/model.module';
               require: true,
               rejectUnauthorized: false,
             },
+            synchronize: true,
           }
         : {
             host: process.env.POSTGRES_HOST,
@@ -34,6 +36,7 @@ import { ModelModule } from './model/model.module';
           }),
       entities: [Model],
     }),
+    ProblemModule,
   ],
   controllers: [AppController],
   providers: [AppService],
