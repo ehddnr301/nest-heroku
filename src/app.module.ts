@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Model } from './model/entities/model.entity';
 import { ModelModule } from './model/model.module';
+import { Problem } from './problem/entities/problem.entity';
 import { ProblemModule } from './problem/problem.module';
 
 @Module({
@@ -35,7 +36,7 @@ import { ProblemModule } from './problem/problem.module';
             database: process.env.POSTGRES_DATABASE,
             synchronize: true,
           }),
-      entities: [Model],
+      entities: [Model, Problem],
     }),
   ],
   controllers: [AppController],
