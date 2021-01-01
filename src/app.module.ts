@@ -10,6 +10,7 @@ import { ProblemModule } from './problem/problem.module';
 @Module({
   imports: [
     ModelModule,
+    ProblemModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env.test',
@@ -36,7 +37,6 @@ import { ProblemModule } from './problem/problem.module';
           }),
       entities: [Model],
     }),
-    ProblemModule,
   ],
   controllers: [AppController],
   providers: [AppService],
