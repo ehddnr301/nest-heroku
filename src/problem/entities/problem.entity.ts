@@ -9,10 +9,10 @@ export class Problem extends BaseEntity {
   question!: string;
 
   @Column({ nullable: true })
-  code: string;
+  code?: string;
 
   @Column({ nullable: true })
-  option: string[];
+  option?: string[];
 
   @Column({ nullable: false })
   answer!: string;

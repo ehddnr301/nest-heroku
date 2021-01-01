@@ -1,16 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CreateProblemDto } from './dtos/create-problem.dto';
 import { Problem } from './entities/problem.entity';
 
 @Injectable()
 export class ProblemService {
   constructor(
     @InjectRepository(Problem)
-    private readonly problem: Repository<Problem>,
+    private readonly problems: Repository<Problem>,
   ) {}
 
   getAll(): Promise<Problem[]> {
-    return this.problem.find();
+    return this.problems.find();
+  }
+
+  create(createProblemDto: CreateProblemDto): Promise<Problem> {
+    const newProblem = this.problems.create(createProblemDto);
+
+    return this.problems.save(newProblem);
   }
 }

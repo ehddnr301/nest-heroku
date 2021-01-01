@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreateProblemDto } from './dtos/create-problem.dto';
 import { ProblemService } from './problem.service';
 
 @Controller('problem')
@@ -8,5 +9,16 @@ export class ProblemController {
   @Get('all')
   getAll() {
     return this.problemService.getAll();
+  }
+
+  @Post('create')
+  async create(@Body() createProblemDto: CreateProblemDto): Promise<boolean> {
+    try {
+      await this.problemService.create(createProblemDto);
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
   }
 }

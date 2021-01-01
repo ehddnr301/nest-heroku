@@ -1,14 +1,14 @@
 import { IsString } from 'class-validator';
 
-export class CreateProblem {
+export class CreateProblemDto {
   @IsString()
   question: string;
 
   @IsString()
   code?: string;
 
-  @IsString()
-  option?: number;
+  @IsString({ each: true })
+  option?: string[];
 
   @IsString()
   answer: string;
