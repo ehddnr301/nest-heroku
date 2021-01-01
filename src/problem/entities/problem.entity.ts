@@ -12,7 +12,7 @@ export class Problem extends BaseEntity {
   code?: string;
 
   @Column({ nullable: true })
-  option?: string[];
+  option?: string;
 
   @Column({ nullable: false })
   answer!: string;

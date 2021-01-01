@@ -7,8 +7,8 @@ export class CreateProblemDto {
   @IsString()
   code?: string;
 
-  @IsString({ each: true })
-  option?: string[];
+  @IsString()
+  option?: string;
 
   @IsString()
   answer: string;
