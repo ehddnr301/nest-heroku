@@ -26,7 +26,7 @@ export class ProblemController {
   @Get('/getOne/:id')
   getOne(@Param('id') problemId: number) {
     try {
-      this.problemService.getOne(problemId);
+      return this.problemService.getOne(problemId);
     } catch (e) {
       return e;
     }
