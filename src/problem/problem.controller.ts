@@ -23,7 +23,7 @@ export class ProblemController {
   }
 
   @Delete('remove/all')
-  async removeAll(): boolean {
+  async removeAll(): Promise<boolean> {
     try {
       await this.problemService.removeAll();
       return true;
