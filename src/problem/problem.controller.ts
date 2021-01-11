@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import { CreateProblemDto } from './dtos/create-problem.dto';
 import { ProblemService } from './problem.service';
 
@@ -18,6 +18,16 @@ export class ProblemController {
       return true;
     } catch (e) {
       console.log(e);
+      return false;
+    }
+  }
+
+  @Delete('remove/all')
+  async removeAll(): boolean {
+    try {
+      await this.problemService.removeAll();
+      return true;
+    } catch {
       return false;
     }
   }
