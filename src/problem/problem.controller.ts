@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import e from 'express';
 import { CreateProblemDto } from './dtos/create-problem.dto';
 import { ProblemService } from './problem.service';
 
@@ -18,6 +19,15 @@ export class ProblemController {
       return true;
     } catch (e) {
       console.log(e);
+      return e;
+    }
+  }
+
+  @Get('/getOne/:id')
+  getOne(@Param('id') problemId: number) {
+    try {
+      this.problemService.getOne(problemId);
+    } catch (e) {
       return e;
     }
   }

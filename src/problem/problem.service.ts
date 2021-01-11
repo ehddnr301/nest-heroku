@@ -15,6 +15,12 @@ export class ProblemService {
     return this.problems.find();
   }
 
+  getOne(problemId) {
+    return this.problems.find({
+      id: problemId,
+    });
+  }
+
   async getTheory(language: string) {
     const problems = await this.problems.find({
       where: {
@@ -23,7 +29,11 @@ export class ProblemService {
       },
     });
 
-    const categoryWithNum = problems.map((p) => [p.problemNumber, p.category]);
+    const categoryWithNum = problems.map((p) => [
+      p.id,
+      p.problemNumber,
+      p.category,
+    ]);
 
     return categoryWithNum;
   }
