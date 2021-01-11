@@ -6,6 +6,15 @@ export class Problem extends BaseEntity {
   id!: number;
 
   @Column({ nullable: false })
+  language!: string;
+
+  @Column({ nullable: false })
+  category!: string;
+
+  @Column({ nullable: false })
+  problemNumber!: number;
+
+  @Column({ nullable: false })
   question!: string;
 
   @Column({ nullable: true })
