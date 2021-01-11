@@ -9,6 +9,9 @@ export class Problem extends BaseEntity {
   language!: string;
 
   @Column({ nullable: false })
+  isTheory!: boolean;
+
+  @Column({ nullable: false })
   category!: string;
 
   @Column({ nullable: false })

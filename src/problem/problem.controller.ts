@@ -22,13 +22,14 @@ export class ProblemController {
     }
   }
 
-  @Delete('remove/all')
-  async removeAll(): Promise<boolean> {
-    try {
-      await this.problemService.removeAll();
-      return true;
-    } catch {
-      return false;
-    }
-  }
+  // * 문제 삭제
+  // @Delete('remove/:id')
+  // async removeAll(@): Promise<boolean> {
+  //   try {
+  // await this.problemService.removeAll();
+  //     return true;
+  //   } catch {
+  //     return false;
+  //   }
+  // }
 }

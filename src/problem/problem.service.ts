@@ -15,10 +15,11 @@ export class ProblemService {
     return this.problems.find();
   }
 
-  removeAll(): boolean {
-    this.problems.delete([1, 2, 3]);
-    return true;
-  }
+  // * 문제 삭제
+  // removeAll(): boolean {
+  //   this.problems.delete([1, 2, 3]);
+  //   return true;
+  // }
 
   create(createProblemDto: CreateProblemDto): Promise<Problem> {
     const newProblem = this.problems.create(createProblemDto);

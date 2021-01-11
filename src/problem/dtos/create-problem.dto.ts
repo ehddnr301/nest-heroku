@@ -1,8 +1,11 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsNumber, IsString } from 'class-validator';
 
 export class CreateProblemDto {
   @IsString()
   language: string;
+
+  @IsBoolean()
+  isTheory: boolean;
 
   @IsString()
   category: string;
