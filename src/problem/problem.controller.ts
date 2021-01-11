@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateProblemDto } from './dtos/create-problem.dto';
 import { ProblemService } from './problem.service';
 
@@ -22,14 +22,24 @@ export class ProblemController {
     }
   }
 
+  @Get('/theory/:lang')
+  async getTheory(@Param('lang') language: string) {
+    try {
+      await this.problemService.getTheory(language);
+      return true;
+    } catch (e) {
+      return e;
+    }
+  }
+
   // * 문제 삭제
-  // @Delete('remove/:id')
-  // async removeAll(@): Promise<boolean> {
-  //   try {
-  // await this.problemService.removeAll();
-  //     return true;
-  //   } catch {
-  //     return false;
-  //   }
-  // }
+  @Delete('remove/:id')
+  removeAll(@Param('id') problemId: number): boolean {
+    try {
+      this.problemService.removeOne(problemId);
+      return true;
+    } catch {
+      return false;
+    }
+  }
 }

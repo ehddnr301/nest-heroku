@@ -11,15 +11,28 @@ export class ProblemService {
     private readonly problems: Repository<Problem>,
   ) {}
 
-  getAll(): Promise<Problem[]> {
+  async getAll(): Promise<Problem[]> {
     return this.problems.find();
   }
 
+  async getTheory(language: string) {
+    const problems = await this.problems.find({
+      where: {
+        language,
+        isTheory: true,
+      },
+    });
+
+    const categoryWithNum = problems.map((p) => [p.problemNumber, p.category]);
+
+    return categoryWithNum;
+  }
+
   // * 문제 삭제
-  // removeAll(): boolean {
-  //   this.problems.delete([1, 2, 3]);
-  //   return true;
-  // }
+  async removeOne(problemId: number): Promise<boolean> {
+    await this.problems.delete(problemId);
+    return true;
+  }
 
   create(createProblemDto: CreateProblemDto): Promise<Problem> {
     const newProblem = this.problems.create(createProblemDto);
