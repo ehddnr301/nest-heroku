@@ -21,21 +21,36 @@ export class ProblemService {
     });
   }
 
-  async getTheory(language: string) {
+  async getHeaderTheory(language: string) {
     const problems = await this.problems.find({
       where: {
         language,
         isTheory: true,
+        problemNumber: 0,
       },
     });
 
-    const categoryWithNum = problems.map((p) => [
-      p.id,
-      p.problemNumber,
-      p.category,
-    ]);
+    const categoryWithNum = problems.map((p) => {
+      return { id: p.id, problemNumber: p.problemNumber, category: p.category };
+    });
 
-    return categoryWithNum;
+    return categoryWithNum[0];
+  }
+
+  async getHeaderProblem(language: string) {
+    const problems = await this.problems.find({
+      where: {
+        language,
+        isTheory: false,
+        problemNumber: 0,
+      },
+    });
+
+    const categoryWithNum = problems.map((p) => {
+      return [p.id, p.problemNumber, p.category];
+    });
+
+    return categoryWithNum[0];
   }
 
   // * 문제 삭제

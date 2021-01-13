@@ -35,7 +35,16 @@ export class ProblemController {
   @Get('/theory/:lang')
   async getTheory(@Param('lang') language: string) {
     try {
-      return this.problemService.getTheory(language);
+      return this.problemService.getHeaderTheory(language);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  @Get('/problem/:lang')
+  async getProblem(@Param('lang') language: string) {
+    try {
+      return this.problemService.getHeaderProblem(language);
     } catch (e) {
       return e;
     }
