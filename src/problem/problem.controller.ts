@@ -41,7 +41,7 @@ export class ProblemController {
     }
   }
 
-  @Get('/problem/:lang')
+  @Get('/question/:lang')
   async getProblem(@Param('lang') language: string) {
     try {
       return this.problemService.getHeaderProblem(language);
