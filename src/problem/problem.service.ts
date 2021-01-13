@@ -34,7 +34,7 @@ export class ProblemService {
       return { id: p.id, problemNumber: p.problemNumber, category: p.category };
     });
 
-    return categoryWithNum[0];
+    return categoryWithNum;
   }
 
   async getHeaderProblem(language: string) {
@@ -50,7 +50,7 @@ export class ProblemService {
       return [p.id, p.problemNumber, p.category];
     });
 
-    return categoryWithNum[0];
+    return categoryWithNum;
   }
 
   // * 문제 삭제
