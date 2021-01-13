@@ -52,7 +52,11 @@ export class ProblemService {
       },
     });
 
-    return problems;
+    const problemsInfo = problems.map((p) => {
+      return { id: p.id, problemNumber: p.problemNumber, category: p.category };
+    });
+
+    return problemsInfo;
   }
 
   // * problemNumber가 0인 문제
@@ -82,7 +86,11 @@ export class ProblemService {
       },
     });
 
-    return problems;
+    const problemsInfo = problems.map((p) => {
+      return { id: p.id, problemNumber: p.problemNumber, category: p.category };
+    });
+
+    return problemsInfo;
   }
   // ! 통합범위
 

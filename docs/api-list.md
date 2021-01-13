@@ -5,6 +5,7 @@ API_URL : https://radiant-hollows-57561.herokuapp.com
 - [API List](#api-list)
   - [문제](#문제)
     - [문제 생성](#문제-생성)
+    - [단일 문제](#단일-문제)
     - [이론 리스트](#이론-리스트)
     - [실전 리스트](#실전-리스트)
     - [이론 문제 리스트](#이론-문제-리스트)
@@ -28,6 +29,18 @@ POST {{API_URL}}/problem/create
 | `code`          | `body`        | `string`    | ✅        | 질문 중 코드부분        |
 | `option`        | `body`        | `string`    | ✅        | 보기                    |
 | `answer`        | `body`        | `string`    | ✅        | 정답                    |
+
+<br/>
+
+### 단일 문제
+
+```
+POST {{API_URL}}/problem/getOne/:id
+```
+
+| 파라미터 | 파라미터 유형 | 데이터 타입 | 필수 여부 | 설명    |
+| -------- | ------------- | ----------- | --------- | ------- |
+| `id`     | `path`        | `number`    | ✅        | 문제 id |
 
 <br/>
 
