@@ -1,5 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import e from 'express';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { CreateProblemDto } from './dtos/create-problem.dto';
 import { ProblemService } from './problem.service';
 
@@ -12,6 +19,7 @@ export class ProblemController {
     return this.problemService.getAll();
   }
 
+  // * 문제 생성
   @Post('create')
   async create(@Body() createProblemDto: CreateProblemDto): Promise<boolean> {
     try {
@@ -23,6 +31,7 @@ export class ProblemController {
     }
   }
 
+  // * 단일 문제
   @Get('/getOne/:id')
   getOne(@Param('id') problemId: number) {
     try {
@@ -32,6 +41,7 @@ export class ProblemController {
     }
   }
 
+  // * 언어별 이론
   @Get('/theory/:lang')
   async getTheory(@Param('lang') language: string) {
     try {
@@ -41,10 +51,37 @@ export class ProblemController {
     }
   }
 
+  // * 실제 문제
+  @Get('/theory/detail/:lang')
+  async getTheoryDetail(
+    @Query('category') category: string,
+    @Param('lang') language: string,
+  ) {
+    try {
+      return this.problemService.getTheoryDetail(category, language);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  // * 언어별 문제
   @Get('/question/:lang')
   async getProblem(@Param('lang') language: string) {
     try {
       return this.problemService.getHeaderProblem(language);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  // * 실제 문제
+  @Get('/question/detail/:lang')
+  async getQuestionDetail(
+    @Query('category') category: string,
+    @Param('lang') language: string,
+  ) {
+    try {
+      return this.problemService.getQuestionDetail(category, language);
     } catch (e) {
       return e;
     }
