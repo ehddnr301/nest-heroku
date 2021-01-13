@@ -26,7 +26,7 @@ import { ProblemModule } from './problem/problem.module';
               require: true,
               rejectUnauthorized: false,
             },
-            synchronize: true,
+            // synchronize: true,
           }
         : {
             host: process.env.POSTGRES_HOST,
