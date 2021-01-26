@@ -31,6 +31,16 @@ export class ProblemController {
     }
   }
 
+  // * 문제 갯수
+  @Get('/count/:lang')
+  getProbelmCount(@Param('lang') language: string) {
+    try {
+      return this.problemService.getProbelmCount(language);
+    } catch (e) {
+      return e;
+    }
+  }
+
   // * 단일 문제
   @Get('/getOne/:id')
   getOne(@Param('id') problemId: number) {

@@ -94,6 +94,13 @@ export class ProblemService {
   }
   // ! 통합범위
 
+  // * 문제 갯수
+  getProbelmCount(language: string): Promise<number> {
+    return this.problems.count({
+      language,
+    });
+  }
+
   // * 문제 삭제
   async removeOne(problemId: number): Promise<boolean> {
     await this.problems.delete(problemId);
