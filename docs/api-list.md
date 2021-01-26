@@ -35,7 +35,7 @@ POST {{API_URL}}/problem/create
 ### 단일 문제
 
 ```
-POST {{API_URL}}/problem/getOne/:id
+GET {{API_URL}}/problem/getOne/:id
 ```
 
 | 파라미터 | 파라미터 유형 | 데이터 타입 | 필수 여부 | 설명    |
