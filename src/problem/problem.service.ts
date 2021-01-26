@@ -95,9 +95,10 @@ export class ProblemService {
   // ! 통합범위
 
   // * 문제 갯수
-  getProbelmCount(language: string): Promise<number> {
+  async getProbelmCount(language: string): Promise<number> {
     return this.problems.count({
       language,
+      problemNumber: Not(0),
     });
   }
 
