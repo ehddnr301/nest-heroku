@@ -22,6 +22,15 @@ export class ProblemService {
     });
   }
 
+  // * id array를 받아 해당하는것 리턴
+  getWrongProblems(problemIds) {
+    return this.problems.find({
+      where: {
+        id: problemIds,
+      },
+    });
+  }
+
   // TODO : isTheory도 query로 받아서 통합하기
   // TODO : problemNumber도 query로 받아서 통합하기
   // ! 통합범위
