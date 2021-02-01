@@ -51,6 +51,7 @@ export class ProblemController {
     }
   }
 
+  // * id array를 받아 문제 리턴
   @Get('/getWrongs')
   getWrongProblems(@Body('ids') problemIds: number[]) {
     try {
