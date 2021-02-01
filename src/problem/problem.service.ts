@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Not, Repository } from 'typeorm';
+import { In, Not, Repository } from 'typeorm';
 import { CreateProblemDto } from './dtos/create-problem.dto';
 import { Problem } from './entities/problem.entity';
 
@@ -23,10 +23,10 @@ export class ProblemService {
   }
 
   // * id array를 받아 해당하는것 리턴
-  getWrongProblems(problemIds) {
+  getWrongProblems(problemIds: number[]) {
     return this.problems.find({
       where: {
-        id: problemIds,
+        id: In(problemIds),
       },
     });
   }

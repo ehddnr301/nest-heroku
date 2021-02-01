@@ -8,7 +8,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { CreateProblemDto } from './dtos/create-problem.dto';
-import { GetProblemsDto } from './dtos/get-problems.dto';
 import { ProblemService } from './problem.service';
 
 @Controller('problem')
@@ -53,7 +52,7 @@ export class ProblemController {
   }
 
   @Get('/getWrongs')
-  getWrongProblems(@Body('ids') problemIds: GetProblemsDto) {
+  getWrongProblems(@Body('ids') problemIds: number[]) {
     try {
       return this.problemService.getWrongProblems(problemIds);
     } catch (e) {
