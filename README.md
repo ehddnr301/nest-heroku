@@ -9,3 +9,4 @@
 ## postgresql
 
 - 시작 : pg_ctl -D /usr/local/var/postgres start
+- kill -3 PID

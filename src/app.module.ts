@@ -3,15 +3,15 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Model } from './model/entities/model.entity';
-import { ModelModule } from './model/model.module';
 import { Problem } from './problem/entities/problem.entity';
 import { ProblemModule } from './problem/problem.module';
+import { PageModule } from './page/page.module';
+import { Page } from './page/entities/page.entity';
 
 @Module({
   imports: [
-    ModelModule,
     ProblemModule,
+    PageModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: process.env.NODE_ENV === 'dev' ? '.dev.env' : '.env.test',
@@ -26,7 +26,7 @@ import { ProblemModule } from './problem/problem.module';
               require: true,
               rejectUnauthorized: false,
             },
-            // synchronize: true,
+            synchronize: true,
           }
         : {
             host: process.env.POSTGRES_HOST,
@@ -36,10 +36,10 @@ import { ProblemModule } from './problem/problem.module';
             database: process.env.POSTGRES_DATABASE,
             synchronize: true,
           }),
-      entities: [Model, Problem],
+      entities: [Problem, Page],
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, Page],
 })
 export class AppModule {}
