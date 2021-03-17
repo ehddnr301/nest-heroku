@@ -30,15 +30,15 @@ export class PageController {
   }
 
   //   * 생성
-  @Post('create')
-  async create(@Body() createPageDto: CreatePageDto): Promise<boolean> {
-    try {
-      await this.pageService.create(createPageDto);
-      return true;
-    } catch (e) {
-      return e;
-    }
-  }
+  // @Post('create')
+  // async create(@Body() createPageDto: CreatePageDto): Promise<boolean> {
+  //   try {
+  //     await this.pageService.create(createPageDto);
+  //     return true;
+  //   } catch (e) {
+  //     return e;
+  //   }
+  // }
 
   //   * 컨텐츠 가져오기
   @Get('contents')

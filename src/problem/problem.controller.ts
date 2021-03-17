@@ -20,16 +20,16 @@ export class ProblemController {
   }
 
   // * 문제 생성
-  @Post('create')
-  async create(@Body() createProblemDto: CreateProblemDto): Promise<boolean> {
-    try {
-      await this.problemService.create(createProblemDto);
-      return true;
-    } catch (e) {
-      console.log(e);
-      return e;
-    }
-  }
+  // @Post('create')
+  // async create(@Body() createProblemDto: CreateProblemDto): Promise<boolean> {
+  //   try {
+  //     await this.problemService.create(createProblemDto);
+  //     return true;
+  //   } catch (e) {
+  //     console.log(e);
+  //     return e;
+  //   }
+  // }
 
   // * 문제 갯수
   @Get('/count/:lang')
