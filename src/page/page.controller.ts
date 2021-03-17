@@ -50,13 +50,13 @@ export class PageController {
     }
   }
 
-  @Delete('remove/:id')
-  removeOne(@Param('id') pageId: number): boolean {
-    try {
-      this.pageService.removeOne(pageId);
-      return true;
-    } catch {
-      return false;
-    }
-  }
+  // @Delete('remove/:id')
+  // removeOne(@Param('id') pageId: number): boolean {
+  //   try {
+  //     this.pageService.removeOne(pageId);
+  //     return true;
+  //   } catch {
+  //     return false;
+  //   }
+  // }
 }

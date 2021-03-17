@@ -108,13 +108,13 @@ export class ProblemController {
   }
 
   // * 문제 삭제
-  @Delete('remove/:id')
-  removeAll(@Param('id') problemId: number): boolean {
-    try {
-      this.problemService.removeOne(problemId);
-      return true;
-    } catch {
-      return false;
-    }
-  }
+  // @Delete('remove/:id')
+  // removeAll(@Param('id') problemId: number): boolean {
+  //   try {
+  //     this.problemService.removeOne(problemId);
+  //     return true;
+  //   } catch {
+  //     return false;
+  //   }
+  // }
 }
